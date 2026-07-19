@@ -459,8 +459,8 @@ footer .foot-logo{
 @media (max-width:720px){
   .navbar{ padding:14px 4%; gap:10px; }
   .nav-links{ gap:16px; }
-  .nav-links a{ font-size:0.75rem; gap:0; }
-  .nav-links a svg{ display:none; }
+  .nav-links a{ font-size:0.72rem; gap:4px; }
+  .nav-links a svg{ width:12px; height:12px; }
   .nav-cta{ padding:8px 14px; font-size:0.75rem; }
   .nav-logo{ font-size:1rem; gap:6px; }
   .nav-logo-img{ width:32px; height:32px; }
