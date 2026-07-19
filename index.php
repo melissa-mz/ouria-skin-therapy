@@ -42,13 +42,13 @@ $adresse       = "Reghaia, Ouled Haddadj, Alger";
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; overflow-x:hidden; scroll-padding-top: 90px; }
 
 body{
   font-family: var(--font-body);
   color: var(--text-dark);
   background: var(--cream);
-  overflow-x:hidden;
+  position:relative;
 }
 
 h1,h2,h3, .logo, .stair-phrase{
