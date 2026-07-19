@@ -110,7 +110,11 @@ img{ max-width:100%; display:block; }
   display:flex;
   gap:38px;
   align-items:center;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
+.nav-links::-webkit-scrollbar{ display:none; }
 .nav-links a{
   font-size:0.88rem;
   font-weight:600;
@@ -121,6 +125,8 @@ img{ max-width:100%; display:block; }
   display:flex;
   align-items:center;
   gap:7px;
+  white-space:nowrap;
+  flex-shrink:0;
   transition: color 0.3s ease;
 }
 .nav-links a svg{ width:15px; height:15px; opacity:0.95; }
@@ -146,11 +152,7 @@ img{ max-width:100%; display:block; }
 }
 .nav-cta::after{ display:none; }
 
-.nav-burger{ display:none; cursor:pointer; z-index:1100; }
-.nav-burger span{
-  display:block; width:26px; height:2px; background:var(--white); margin:6px 0;
-  transition:0.3s;
-}
+.nav-burger{ display:none !important; }
 
 /* ============ HERO ============ */
 .hero{
@@ -455,17 +457,13 @@ footer .foot-logo{
 }
 
 @media (max-width:720px){
-  .nav-links{
-    position:fixed; top:0; right:-100%; height:100vh; width:75%;
-    background: var(--aubergine);
-    flex-direction:column; justify-content:center;
-    transition: right 0.4s ease;
-  }
-  .nav-links.open{ right:0; }
-  .nav-links a{ color:var(--white) !important; font-size:1rem; }
-  .nav-burger{ display:block; }
-  .nav-logo{ font-size:1.1rem; gap:8px; }
-  .nav-logo-img{ width:36px; height:36px; }
+  .navbar{ padding:14px 4%; gap:10px; }
+  .nav-links{ gap:16px; }
+  .nav-links a{ font-size:0.75rem; gap:0; }
+  .nav-links a svg{ display:none; }
+  .nav-cta{ padding:8px 14px; font-size:0.75rem; }
+  .nav-logo{ font-size:1rem; gap:6px; }
+  .nav-logo-img{ width:32px; height:32px; }
   .service-card{ flex-basis:100%; max-width:100%; }
   .section-card{ padding:50px 6%; border-radius:24px; }
   .section-head h2{ font-size:2.1rem; }
@@ -501,10 +499,6 @@ footer .foot-logo{
       Formation</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
-
-  <div class="nav-burger" id="navBurger">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -684,8 +678,6 @@ footer .foot-logo{
 // OURIA SKIN THERAPY — script.js
 
 const navbar = document.getElementById('navbar');
-const burger = document.getElementById('navBurger');
-const navLinks = document.getElementById('navLinks');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 40) {
@@ -693,15 +685,6 @@ window.addEventListener('scroll', () => {
   } else {
     navbar.classList.remove('scrolled');
   }
-});
-
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-// ferme le menu mobile quand on clique un lien
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
 </script>
