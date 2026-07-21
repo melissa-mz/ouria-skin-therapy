@@ -1,43 +1,51 @@
 <?php
-// OURIA SKIN THERAPY — index.php
-$phone_display = "07 79 22 91 13";
-$phone_wa      = "213779229113"; // format international pour lien WhatsApp
-$insta_url     = "https://www.instagram.com/ouria.skin_therapy/";
-$insta_marque  = "https://www.instagram.com/dermo_cosmetic_ouria/";
-$adresse       = "Reghaia, Ouled Haddadj, Alger";
+// FULL STAR AESTHETIC — index.php
+$phone_display = "0540 437 460 / 0799 886 911";
+$phone_wa      = "213540437460"; // format international pour lien WhatsApp
+$insta_url     = "https://www.instagram.com/full_star_aesthetic/";
+$fb_url        = "https://www.facebook.com/FullStarAesthetic/";
+$adresse       = "Ouled Fayet, Alger";
+
+// Images de la galerie résultats
+$result_images = [
+    'img1.jpg',
+    'img2.jpg',
+    'img3.jpg',
+    'img4.jpg',
+    'img5.jpg'
+];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ouria Skin Therapy — Soins médico-esthétiques</title>
-<link rel="icon" type="image/png" href="images/logo.png">
-<meta name="description" content="Ouria Skin Therapy — soins médico-esthétiques à Reghaia : Hydrafacial, Oxygénothérapie, PRP, Microneedling.">
+<title>Full Star Aesthetic — Centre de médecine esthétique</title>
+<!-- FAVICON SUPPRIMÉ -->
+<meta name="description" content="Full Star Aesthetic — Centre de médecine esthétique à Ouled Fayet : Hydrafacial, Botox, Filler, PRP, Microneedling.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ============================================
-   OURIA SKIN THERAPY — style.css
-   Palette : blanc cassé / beige + aubergine foncé + or
-   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Didot&display=swap');
 
 :root{
-  --cream:        #FAF6F1;
-  --beige:        #EFE3D6;
-  --aubergine:    #3C1B2E;
-  --aubergine-2:  #5C2B47;
+  --cream:        #FFF9F7;
+  --rose-profond: #8B1A2B;
+  --rose-fonce:   #6E1423;
+  --bordeaux:     #5C0E1A;
   --gold:         #C9A46A;
-  --text-dark:    #2A1620;
+  --gold-light:   #D4B896;
+  --text-dark:    #1C1013;
   --text-soft:    #6E5A63;
   --white:        #FFFFFF;
 
-  --font-display: 'Cormorant Garamond', serif;
   --font-body:    'Jost', sans-serif;
+  --font-titre:   'Didot', 'Bodoni', 'Bodoni MT', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', serif;
 
   --radius-lg: 40px;
   --radius-md: 20px;
-  --shadow-soft: 0 20px 50px rgba(60, 27, 46, 0.10);
+  --shadow-soft: 0 20px 50px rgba(110, 20, 35, 0.12);
 }
 
 *{ margin:0; padding:0; box-sizing:border-box; }
@@ -51,9 +59,7 @@ body{
   position:relative;
 }
 
-h1,h2,h3, .logo, .stair-phrase{
-  font-family: var(--font-display);
-}
+h1,h2,h3{ font-family: var(--font-titre); }
 
 a{ text-decoration:none; color:inherit; }
 ul{ list-style:none; }
@@ -64,7 +70,7 @@ img{ max-width:100%; display:block; }
   letter-spacing:0.32em;
   text-transform:uppercase;
   color: var(--gold);
-  font-weight:500;
+  font-weight:600;
   margin-bottom:14px;
   display:block;
 }
@@ -79,31 +85,27 @@ img{ max-width:100%; display:block; }
   justify-content:space-between;
   padding:18px 6%;
   transition: all 0.4s ease;
-  background: var(--aubergine);
-  box-shadow: var(--shadow-soft);
+  background: rgba(255, 249, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(110, 20, 35, 0.06);
+  box-shadow: 0 4px 30px rgba(110, 20, 35, 0.06);
 }
 .navbar.scrolled{
   padding:12px 6%;
-  background: var(--aubergine-2);
+  background: rgba(255, 249, 247, 0.96);
+  box-shadow: 0 4px 30px rgba(110, 20, 35, 0.10);
 }
 .nav-logo{
   display:flex;
   align-items:center;
   gap:12px;
-  font-family: var(--font-display);
-  font-size:1.5rem;
-  font-style:italic;
+  font-family: var(--font-titre);
+  font-size:1.6rem;
   font-weight:700;
-  letter-spacing:0.02em;
-  color: var(--white);
-}
-.nav-logo-img{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid var(--gold);
-  flex-shrink:0;
+  font-style:normal;
+  letter-spacing:0.04em;
+  color: var(--rose-fonce);
 }
 
 .nav-links{
@@ -119,7 +121,7 @@ img{ max-width:100%; display:block; }
   font-size:0.88rem;
   font-weight:600;
   letter-spacing:0.05em;
-  color: var(--white);
+  color: var(--text-dark);
   position:relative;
   padding:4px 0;
   display:flex;
@@ -129,30 +131,53 @@ img{ max-width:100%; display:block; }
   flex-shrink:0;
   transition: color 0.3s ease;
 }
-.nav-links a svg{ width:15px; height:15px; opacity:0.95; }
+.nav-links a svg{ width:15px; height:15px; opacity:0.85; stroke: var(--rose-fonce); }
 .nav-links a::after{
   content:'';
   position:absolute;
   bottom:-2px; left:0;
-  width:0; height:1px;
-  background: var(--gold);
+  width:0; height:1.5px;
+  background: var(--rose-fonce);
   transition: width 0.3s ease;
 }
 .nav-links a:hover::after{ width:100%; }
-.nav-links a:hover{ color: var(--gold); }
+.nav-links a:hover{ color: var(--rose-fonce); }
 
 .nav-cta{
-  background: var(--gold);
-  color: var(--aubergine) !important;
+  background: var(--rose-fonce);
+  color: var(--white) !important;
   padding:10px 24px;
   border-radius:30px;
   font-size:0.85rem;
   font-weight:700;
   letter-spacing:0.06em;
+  transition: all 0.3s ease;
 }
 .nav-cta::after{ display:none; }
+.nav-cta:hover{
+  background: var(--rose-profond);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(110, 20, 35, 0.25);
+  color: var(--white) !important;
+}
 
-.nav-burger{ display:none !important; }
+.nav-rdv{
+  background: var(--gold);
+  color: var(--white) !important;
+  padding:10px 24px;
+  border-radius:30px;
+  font-size:0.85rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  transition: all 0.3s ease;
+}
+.nav-rdv::after{ display:none; }
+.nav-rdv:hover{
+  background: var(--rose-fonce);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(110, 20, 35, 0.25);
+  color: var(--white) !important;
+}
 
 /* ============ HERO ============ */
 .hero{
@@ -164,7 +189,7 @@ img{ max-width:100%; display:block; }
   padding:140px 6% 80px;
   background:
     radial-gradient(circle at 15% 20%, rgba(201,164,106,0.08), transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(92,43,71,0.06), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(110,20,35,0.05), transparent 45%),
     var(--cream);
 }
 
@@ -177,7 +202,6 @@ img{ max-width:100%; display:block; }
   width:100%;
 }
 
-/* video, dead center, arched frame echoing the brand's arch motif */
 .hero-video-frame{
   position:relative;
   width:340px;
@@ -190,12 +214,11 @@ img{ max-width:100%; display:block; }
   object-fit:cover;
   border-radius: 200px;
   border:10px solid var(--white);
-  outline:2px solid var(--aubergine);
+  outline:2px solid var(--rose-fonce);
   outline-offset:6px;
   box-shadow: var(--shadow-soft);
 }
 
-/* staircase text block, stepping down beside the video */
 .hero-stair{
   order:1;
   display:flex;
@@ -205,15 +228,20 @@ img{ max-width:100%; display:block; }
 }
 .hero-stair .stair-logo{
   align-self:flex-start;
-  background: var(--aubergine);
+  background: var(--rose-fonce);
   color: var(--white);
+  font-family: var(--font-titre);
   font-size:3rem;
-  font-style:italic;
-  font-weight:800;
-  letter-spacing:0.03em;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:0.04em;
   padding:16px 34px;
   border-radius:4px 24px 4px 24px;
   box-shadow: var(--shadow-soft);
+  background: linear-gradient(135deg, #6E1423 0%, #8B1A2B 50%, #C9A46A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .hero-stair .stair-sub{
   align-self:flex-start;
@@ -222,27 +250,88 @@ img{ max-width:100%; display:block; }
   font-weight:700;
   letter-spacing:0.28em;
   text-transform:uppercase;
-  color: var(--aubergine);
+  color: var(--rose-fonce);
 }
 .hero-stair .stair-phrase{
   align-self:flex-start;
   margin-left:68px;
-  font-size:2rem;
+  font-family: var(--font-titre);
+  font-size:1.8rem;
   font-weight:700;
-  font-style:italic;
+  font-style:normal;
   line-height:1.3;
-  color: var(--aubergine-2);
+  color: var(--rose-profond);
   max-width:460px;
+  background: linear-gradient(135deg, #6E1423 0%, #C9A46A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .hero-stair .stair-line{
   align-self:flex-start;
   margin-left:102px;
   width:60px;
-  height:1px;
+  height:1.5px;
   background: var(--gold);
 }
 
-/* ============ SECTIONS — alternating framed cards ============ */
+.hero-btn-wrap{
+  align-self:flex-start;
+  margin-left:68px;
+  margin-top:10px;
+}
+.btn-hero{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  background: linear-gradient(135deg, #6E1423 0%, #8B1A2B 50%, #C9A46A 100%);
+  color: var(--white);
+  padding:18px 42px;
+  border-radius:50px;
+  font-family: var(--font-body);
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  box-shadow: 0 12px 35px rgba(110, 20, 35, 0.30);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position:relative;
+  overflow:hidden;
+  border: none;
+  cursor: pointer;
+}
+.btn-hero::before{
+  content:'';
+  position:absolute;
+  top:0; left:-100%;
+  width:100%; height:100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.6s ease;
+}
+.btn-hero:hover::before{
+  left:100%;
+}
+.btn-hero:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(110, 20, 35, 0.40);
+}
+.btn-hero:active{
+  transform: scale(0.97);
+}
+.btn-hero svg{
+  width:22px;
+  height:22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  flex-shrink:0;
+  transition: transform 0.3s ease;
+}
+.btn-hero:hover svg{
+  transform: translateX(4px);
+}
+
+/* ============ SECTIONS ============ */
 .section-wrap{
   padding:60px 6% 10px;
 }
@@ -254,7 +343,7 @@ img{ max-width:100%; display:block; }
   box-shadow: var(--shadow-soft);
 }
 .section-card.bg-cream{ background: var(--white); }
-.section-card.bg-beige{ background: var(--beige); }
+.section-card.bg-rose{ background: #FDF6F5; }
 
 .section-head{
   text-align:center;
@@ -262,9 +351,16 @@ img{ max-width:100%; display:block; }
   margin:0 auto 50px;
 }
 .section-head h2{
-  font-size:2.6rem;
-  color: var(--aubergine);
-  font-weight:600;
+  font-family: var(--font-titre);
+  font-size:3rem;
+  font-weight:700;
+  font-style:normal;
+  color: var(--rose-fonce);
+  letter-spacing:0.04em;
+  background: linear-gradient(135deg, #6E1423 0%, #C9A46A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .section-head p{
   color: var(--text-soft);
@@ -284,14 +380,14 @@ img{ max-width:100%; display:block; }
   background: var(--white);
   border-radius: var(--radius-md);
   overflow:hidden;
-  box-shadow: 0 12px 30px rgba(60,27,46,0.08);
+  box-shadow: 0 12px 30px rgba(110,20,35,0.08);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   flex: 1 1 240px;
   max-width:260px;
 }
 .service-card:hover{
   transform:translateY(-8px);
-  box-shadow: 0 20px 40px rgba(60,27,46,0.16);
+  box-shadow: 0 20px 40px rgba(110,20,35,0.16);
 }
 .service-photo{
   width:100%; height:210px; overflow:hidden;
@@ -304,10 +400,13 @@ img{ max-width:100%; display:block; }
 .service-card:hover .service-photo img{ transform:scale(1.08); }
 .service-body{ padding:22px 20px 26px; text-align:center; }
 .service-body h3{
-  font-size:1.35rem;
-  color: var(--aubergine);
+  font-family: var(--font-titre);
+  font-size:1.4rem;
+  font-weight:700;
+  font-style:normal;
+  color: var(--rose-fonce);
   margin-bottom:8px;
-  font-weight:600;
+  letter-spacing:0.03em;
 }
 .service-body p{
   font-size:0.85rem;
@@ -328,20 +427,19 @@ img{ max-width:100%; display:block; }
   justify-content:space-between;
   align-items:baseline;
   padding:16px 4px;
-  border-bottom:1px dashed rgba(60,27,46,0.18);
-  font-style:italic;
+  border-bottom:1px dashed rgba(110,20,35,0.15);
 }
 .tarif-row:last-child{ border-bottom:none; }
 .tarif-row span:first-child{
-  font-family: var(--font-display);
+  font-family: var(--font-titre);
+  font-weight:700;
   font-size:1.2rem;
   color: var(--text-dark);
 }
 .tarif-row span:last-child{
   font-family: var(--font-body);
-  font-style:normal;
-  font-weight:600;
-  color: var(--aubergine);
+  font-weight:700;
+  color: var(--rose-fonce);
   white-space:nowrap;
   padding-left:20px;
 }
@@ -360,18 +458,86 @@ img{ max-width:100%; display:block; }
   background: var(--white);
   padding:16px 22px;
   border-radius:14px;
-  box-shadow: 0 8px 20px rgba(60,27,46,0.06);
+  box-shadow: 0 8px 20px rgba(110,20,35,0.06);
 }
 .formation-item .num{
-  font-family:var(--font-display);
-  font-style:italic;
+  font-family:var(--font-titre);
+  font-weight:700;
   color: var(--gold);
   font-size:1.3rem;
   width:28px;
 }
 .formation-item span.label{ font-size:0.95rem; color:var(--text-dark); }
 
-/* ---- Contact ---- */
+/* ============ RÉSULTATS / GALERIE ============ */
+.resultats-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:30px;
+  max-width:900px;
+  margin:0 auto;
+}
+.resultat-item{
+  aspect-ratio: 1/1;
+  overflow:hidden;
+  border-radius:0;
+  box-shadow: none;
+  background: transparent;
+  transition: transform 0.4s ease;
+}
+.resultat-item:hover{
+  transform: scale(1.02);
+}
+.resultat-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Indicateurs de navigation numériques */
+.resultats-nav{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:30px;
+}
+.resultats-nav .dot{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background: var(--rose-fonce);
+  opacity:0.25;
+  cursor:pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding:0;
+}
+.resultats-nav .dot.active{
+  opacity:1;
+  transform: scale(1.2);
+  background: var(--gold);
+}
+.resultats-nav .dot:hover{
+  opacity:0.7;
+}
+
+/* Conteneur pour l'effet de transition */
+.resultats-track-wrapper{
+  overflow:hidden;
+  position:relative;
+}
+.resultats-track{
+  display:flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+.resultats-slide{
+  flex:0 0 100%;
+  padding:0 10px;
+}
+
+/* ============ CONTACT ============ */
 .contact-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -392,7 +558,7 @@ img{ max-width:100%; display:block; }
 .contact-item .icon-circle{
   width:46px; height:46px;
   border-radius:50%;
-  background: var(--aubergine);
+  background: var(--rose-fonce);
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
 }
@@ -401,18 +567,18 @@ img{ max-width:100%; display:block; }
   font-size:0.95rem;
   color: var(--text-dark);
 }
-.contact-item a:hover{ color: var(--aubergine); }
+.contact-item a:hover{ color: var(--rose-fonce); }
 
 .social-row{ display:flex; gap:14px; margin-top:10px; }
 .social-row a{
   width:44px; height:44px;
   border-radius:50%;
-  background: var(--beige);
+  background: #F5E6E8;
   display:flex; align-items:center; justify-content:center;
   transition: background 0.3s ease, transform 0.3s ease;
 }
-.social-row a svg{ width:19px; height:19px; fill:var(--aubergine); }
-.social-row a:hover{ background: var(--aubergine); transform:translateY(-4px); }
+.social-row a svg{ width:19px; height:19px; fill:var(--rose-fonce); }
+.social-row a:hover{ background: var(--rose-fonce); transform:translateY(-4px); }
 .social-row a:hover svg{ fill: var(--white); }
 
 .map-frame{
@@ -431,12 +597,16 @@ footer{
   font-size:0.82rem;
 }
 footer .foot-logo{
-  font-family:var(--font-display);
-  font-style:italic;
-  color:var(--aubergine);
-  font-size:1.3rem;
+  font-family:var(--font-titre);
+  font-weight:700;
+  color: var(--rose-fonce);
+  font-size:1.6rem;
   margin-bottom:8px;
   display:block;
+  background: linear-gradient(135deg, #6E1423 0%, #C9A46A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ============ RESPONSIVE ============ */
@@ -451,22 +621,31 @@ footer .foot-logo{
   .hero-stair .stair-logo,
   .hero-stair .stair-sub,
   .hero-stair .stair-phrase,
-  .hero-stair .stair-line{ margin-left:0; align-self:center; text-align:center; }
+  .hero-stair .stair-line,
+  .hero-btn-wrap{ margin-left:0; align-self:center; text-align:center; }
   .hero-video-frame{ order:2; width:280px; }
   .hero-video-frame video{ height:380px; }
+  .btn-hero{ padding:16px 32px; font-size:0.95rem; }
+  .resultats-grid{ grid-template-columns:1fr 1fr; gap:20px; }
 }
 
 @media (max-width:720px){
-  .navbar{ padding:14px 4%; gap:10px; }
-  .nav-links{ gap:16px; }
+  .navbar{ padding:14px 4%; gap:10px; flex-wrap:wrap; justify-content:center; }
+  .nav-links{ gap:16px; flex-wrap:wrap; justify-content:center; }
   .nav-links a{ font-size:0.72rem; gap:4px; }
   .nav-links a svg{ width:12px; height:12px; }
   .nav-cta{ padding:8px 14px; font-size:0.75rem; }
+  .nav-rdv{ padding:8px 14px; font-size:0.75rem; }
   .nav-logo{ font-size:1rem; gap:6px; }
-  .nav-logo-img{ width:32px; height:32px; }
   .service-card{ flex-basis:100%; max-width:100%; }
   .section-card{ padding:50px 6%; border-radius:24px; }
-  .section-head h2{ font-size:2.1rem; }
+  .section-head h2{ font-size:2.2rem; }
+  .hero-stair .stair-logo{ font-size:2.2rem; }
+  .hero-stair .stair-phrase{ font-size:1.4rem; }
+  .btn-hero{ padding:14px 28px; font-size:0.85rem; }
+  .btn-hero svg{ width:18px; height:18px; }
+  .resultats-grid{ grid-template-columns:1fr 1fr; gap:12px; }
+  .resultats-nav .dot{ width:12px; height:12px; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -480,8 +659,7 @@ footer .foot-logo{
 <!-- ============ NAVBAR ============ -->
 <nav class="navbar" id="navbar">
   <a href="#accueil" class="nav-logo">
-    <img src="images/logo.png" alt="Ouria Skin Therapy" class="nav-logo-img">
-    <span>Ouria Skin Therapy</span>
+    <span>Full Star Aesthetic</span>
   </a>
 
   <ul class="nav-links" id="navLinks">
@@ -494,10 +672,14 @@ footer .foot-logo{
     <li><a href="#tarifs">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
       Tarifs</a></li>
+    <li><a href="#resultats">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v18H3z"/><path d="M8 12l3 3 5-5"/></svg>
+      Résultats</a></li>
     <li><a href="#formation">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4 2 8l10 4 10-4-10-4Z"/><path d="M6 10v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
       Formation</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li><a href="https://wa.me/<?= $phone_wa ?>" target="_blank" rel="noopener" class="nav-rdv">📅 Prendre RDV</a></li>
   </ul>
 </nav>
 
@@ -506,10 +688,17 @@ footer .foot-logo{
   <div class="hero-inner">
 
     <div class="hero-stair">
-      <span class="stair-logo">Ouria</span>
-      <span class="stair-sub">Skin Therapy</span>
-      <p class="stair-phrase">« Votre peau mérite autant de douceur, d'attention et de soin que vous en offrez à celles que vous aimez. »</p>
+      <span class="stair-logo">Full Star</span>
+      <span class="stair-sub">Aesthetic</span>
+      <p class="stair-phrase">« Révélez l'éclat de votre peau avec une touche d'élégance et de douceur. »</p>
       <span class="stair-line"></span>
+
+      <div class="hero-btn-wrap">
+        <a href="https://wa.me/<?= $phone_wa ?>" target="_blank" rel="noopener" class="btn-hero">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+          Prendre rendez-vous
+        </a>
+      </div>
     </div>
 
     <div class="hero-video-frame">
@@ -524,17 +713,25 @@ footer .foot-logo{
   <div class="section-card bg-cream">
     <div class="section-head">
       <span class="eyebrow">Nos soins</span>
-      <h2>Our Services</h2>
-      <p>Des protocoles médico-esthétiques précis, pensés pour révéler la peau, pas la masquer.</p>
+      <h2>Nos Services</h2>
+      <p>Des protocoles médico-esthétiques précis, pensés pour révéler votre beauté naturelle.</p>
     </div>
 
     <div class="services-grid">
 
       <div class="service-card">
-        <div class="service-photo"><img src="images/hydrafacial.jpg" alt="Hydrafacial + EMS"></div>
+        <div class="service-photo"><img src="images/hydrafacial.jpg" alt="Hydrafacial"></div>
         <div class="service-body">
-          <h3>Hydrafacial + EMS</h3>
-          <p>Nettoyage en profondeur, exfoliation douce et stimulation musculaire pour un teint frais et raffermi.</p>
+          <h3>HydraFacial</h3>
+          <p>Nettoyage en profondeur, exfoliation douce et hydratation avancée pour un teint lumineux et rafraîchi.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-photo"><img src="images/botox.jpg" alt="Botox"></div>
+        <div class="service-body">
+          <h3>Botox &amp; Filler</h3>
+          <p>Augmentation des lèvres, comblement des rides et SkinBooster pour un visage lisse et naturel.</p>
         </div>
       </div>
 
@@ -547,7 +744,7 @@ footer .foot-logo{
       </div>
 
       <div class="service-card">
-        <div class="service-photo"><img src="images/microneedling.jpg" alt="Microneedling avec protocole thérapeutique"></div>
+        <div class="service-photo"><img src="images/microneedling.jpg" alt="Microneedling"></div>
         <div class="service-body">
           <h3>Microneedling</h3>
           <p>Protocole thérapeutique par micro-perforations pour relancer le collagène et affiner le grain de peau.</p>
@@ -563,10 +760,10 @@ footer .foot-logo{
       </div>
 
       <div class="service-card">
-        <div class="service-photo"><img src="images/skinbooster.jpg" alt="Skinbooster"></div>
+        <div class="service-photo"><img src="images/microblading.jpg" alt="Microblading"></div>
         <div class="service-body">
-          <h3>Skinbooster</h3>
-          <p>Acide hyaluronique injecté finement pour une hydratation profonde et durable de la peau.</p>
+          <h3>Microblading</h3>
+          <p>Harmonisation et embellissement des sourcils pour un regard parfaitement dessiné.</p>
         </div>
       </div>
 
@@ -576,28 +773,73 @@ footer .foot-logo{
 
 <!-- ============ TARIFS ============ -->
 <section class="section-wrap" id="tarifs">
-  <div class="section-card bg-beige">
+  <div class="section-card bg-rose">
     <div class="section-head">
       <span class="eyebrow">Investir dans sa peau</span>
-      <h2>Tarifs Visage</h2>
+      <h2>Tarifs</h2>
       <p>Des soins sur-mesure, à des tarifs transparents.</p>
     </div>
 
     <div class="tarifs-list">
-      <div class="tarif-row"><span>Hydrafacial</span><span>8 000 DA</span></div>
-      <div class="tarif-row"><span>Oxygénofacial</span><span>7 000 DA</span></div>
+      <div class="tarif-row"><span>HydraFacial</span><span>8 000 DA</span></div>
+      <div class="tarif-row"><span>Botox (une zone)</span><span>12 000 DA</span></div>
+      <div class="tarif-row"><span>Filler (lèvres)</span><span>18 000 DA</span></div>
+      <div class="tarif-row"><span>SkinBooster</span><span>18 000 DA</span></div>
       <div class="tarif-row"><span>Microneedling</span><span>8 000 DA</span></div>
       <div class="tarif-row"><span>Mésothérapie</span><span>7 000 DA</span></div>
-      <div class="tarif-row"><span>Soin Lifting EMS + Radiofréquence</span><span>3 500 DA</span></div>
       <div class="tarif-row"><span>PRP + Mésothérapie</span><span>15 000 DA</span></div>
-      <div class="tarif-row"><span>Skinbooster</span><span>18 000 DA</span></div>
+      <div class="tarif-row"><span>Microblading</span><span>12 000 DA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RÉSULTATS ============ -->
+<section class="section-wrap" id="resultats">
+  <div class="section-card bg-cream">
+    <div class="section-head">
+      <span class="eyebrow">Avant / Après</span>
+      <h2>Nos Résultats</h2>
+      <p>Découvrez quelques-uns de nos résultats les plus marquants.</p>
+    </div>
+
+    <div class="resultats-track-wrapper">
+      <div class="resultats-track" id="resultatsTrack">
+        <?php
+        // Créer les slides avec 2 images par slide
+        $chunks = array_chunk($result_images, 2);
+        foreach ($chunks as $chunk) :
+        ?>
+        <div class="resultats-slide">
+          <div class="resultats-grid">
+            <?php foreach ($chunk as $img) : ?>
+            <div class="resultat-item">
+              <img src="images/<?= $img ?>" alt="Résultat Full Star Aesthetic">
+            </div>
+            <?php endforeach; ?>
+            <?php
+            // Si le chunk n'a qu'une image, ajouter une cellule vide pour garder la grille
+            if (count($chunk) < 2) :
+            ?>
+            <div class="resultat-item" style="background:transparent;"></div>
+            <?php endif; ?>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
+    <!-- Indicateurs numériques -->
+    <div class="resultats-nav" id="resultatsNav">
+      <?php for ($i = 0; $i < count($chunks); $i++) : ?>
+      <button class="dot <?= $i === 0 ? 'active' : '' ?>" data-index="<?= $i ?>" aria-label="Voir le résultat <?= $i+1 ?>"></button>
+      <?php endfor; ?>
     </div>
   </div>
 </section>
 
 <!-- ============ FORMATION ============ -->
 <section class="section-wrap" id="formation">
-  <div class="section-card bg-cream">
+  <div class="section-card bg-rose">
     <div class="section-head">
       <span class="eyebrow">Se former</span>
       <h2>Programme de formation</h2>
@@ -606,17 +848,18 @@ footer .foot-logo{
 
     <div class="formation-list">
       <div class="formation-item"><span class="num">01</span><span class="label">Anatomie de la peau</span></div>
-      <div class="formation-item"><span class="num">02</span><span class="label">Hydrafacial</span></div>
+      <div class="formation-item"><span class="num">02</span><span class="label">HydraFacial</span></div>
       <div class="formation-item"><span class="num">03</span><span class="label">Dermapen (Microneedling)</span></div>
       <div class="formation-item"><span class="num">04</span><span class="label">Mésothérapie</span></div>
       <div class="formation-item"><span class="num">05</span><span class="label">Peeling</span></div>
+      <div class="formation-item"><span class="num">06</span><span class="label">Microblading</span></div>
     </div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
 <section class="section-wrap" id="contact">
-  <div class="section-card bg-beige">
+  <div class="section-card bg-cream">
     <div class="section-head">
       <span class="eyebrow">Nous rejoindre</span>
       <h2>Contact</h2>
@@ -644,12 +887,15 @@ footer .foot-logo{
           <span class="icon-circle">
             <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm3.4 15c-2-1.4-4.8-1.4-6.8 0-1.6-1.2-2.6-3-2.6-5a7 7 0 1 1 12 5Z"/></svg>
           </span>
-          <a href="<?= $insta_marque ?>" target="_blank" rel="noopener">@dermo_cosmetic_ouria — notre marque</a>
+          <a href="<?= $fb_url ?>" target="_blank" rel="noopener">Facebook — Full Star Aesthetic</a>
         </div>
 
         <div class="social-row">
           <a href="<?= $insta_url ?>" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.07.05-1.42.06-4.12.06s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.95.01 9.3 0 12 0Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z" transform="translate(0,2)"/></svg>
+          </a>
+          <a href="<?= $fb_url ?>" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.9h2.7l.4-3.1h-3.1V8.1c0-.9.25-1.5 1.55-1.5H16.7V3.8C16.4 3.8 15.4 3.7 14.3 3.7c-2.3 0-3.9 1.4-3.9 4v2.3H7.7v3.1h2.7V21h3.1Z"/></svg>
           </a>
           <a href="https://wa.me/<?= $phone_wa ?>" target="_blank" rel="noopener" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
@@ -659,7 +905,7 @@ footer .foot-logo{
 
       <div class="map-frame">
         <iframe
-          src="https://www.google.com/maps?q=Reghaia+Ouled+Haddadj+Alger&output=embed"
+          src="https://www.google.com/maps?q=Ouled+Fayet+Alger&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           allowfullscreen>
@@ -670,13 +916,11 @@ footer .foot-logo{
 </section>
 
 <footer>
-  <span class="foot-logo">Ouria Skin Therapy</span>
-  &copy; <?= date("Y") ?> — Tous droits réservés
+  <span class="foot-logo">Full Star Aesthetic</span>
+  &copy; <?= date("Y") ?> — Dre Rania Ait Amer — Tous droits réservés
 </footer>
 
 <script>
-// OURIA SKIN THERAPY — script.js
-
 const navbar = document.getElementById('navbar');
 
 window.addEventListener('scroll', () => {
@@ -687,6 +931,33 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// ============ GALERIE RÉSULTATS — navigation numérique ============
+const track = document.getElementById('resultatsTrack');
+const dots = document.querySelectorAll('.resultats-nav .dot');
+let currentSlide = 0;
+const totalSlides = dots.length;
+
+function goToSlide(index) {
+  if (index < 0) index = 0;
+  if (index >= totalSlides) index = totalSlides - 1;
+  currentSlide = index;
+  track.style.transform = 'translateX(-' + (index * 100) + '%)';
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+dots.forEach((dot) => {
+  dot.addEventListener('click', () => {
+    const index = parseInt(dot.dataset.index);
+    goToSlide(index);
+  });
+});
+
+// Auto-avance toutes les 5 secondes (optionnel)
+// setInterval(() => {
+//   goToSlide((currentSlide + 1) % totalSlides);
+// }, 5000);
 </script>
 </body>
 </html>
